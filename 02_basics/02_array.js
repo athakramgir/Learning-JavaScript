@@ -41,3 +41,5 @@ const item2 = 200;
 const item3 = 300; 
 // console.log(Array.from(item1, item2, item3)) error because from creates array from "array like objects"
 console.log(Array.of(item1, item2, item3)) // made an array 'of' 3 items
+
+console.log(Array.of(item1, item2, item3).concat(all_heroes));  // made an array out of items and then conctanated the all_heroes with that 
