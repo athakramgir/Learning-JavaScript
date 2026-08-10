@@ -66,3 +66,31 @@ console.log(entries)
 // to check if an object has a certain property or not
 console.log(another_object.hasOwnProperty('isLoggedIn')) // false
 console.log(another_object.hasOwnProperty('name')) // true  
+
+
+// De-Structuring Objects 
+
+const course = { 
+    name : "JS-Hindi", 
+    price: 999, 
+    instructorName : "Hitesh"
+}
+console.log(course.instructorName) 
+console.log(course.name)
+console.log(course.price) 
+// Problem : when we try to access the attributes of the object we have to repeat writing objectName.method so to solve this we can destructure the object 
+const {instructorName} = course
+console.log(instructorName) 
+
+// if the name is too large 
+const {instructorName : inst} = course // basically these curly braces are used for de-structuring
+console.log(inst) // this also works
+ 
+
+// APIs (Application Programming Interface) : Whenever we want someone else to do us a job, example logging in with google, we don't have to worry about authenticating the user when they login with google 
+// JSON Objects (checkout api.github.com : you'll see how api calls are recieved then they can be put into an object and attributes can be accessed ) 
+// { api json
+//     name : "athak", 
+//     courseName : "JS-Hindi", 
+//     price : "free" 
+// }
