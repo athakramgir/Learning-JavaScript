@@ -88,7 +88,7 @@ console.log(inst) // this also works
  
 
 // APIs (Application Programming Interface) : Whenever we want someone else to do us a job, example logging in with google, we don't have to worry about authenticating the user when they login with google 
-// JSON Objects (checkout api.github.com : you'll see how api calls are recieved then they can be put into an object and attributes can be accessed ) 
+// JSON Objects (checkout api.github.com : you'll see how api calls are recieved then they can be put into an object and attributes can be accessed) 
 // { api json
 //     name : "athak", 
 //     courseName : "JS-Hindi", 
