@@ -25,3 +25,12 @@ chai();
     console.log(`DB CONNECTED FOR USER ${username}`);
     
 } )('Athak'); // here the second parenthesis is used to pass arguements because that does the execution. I have also given a parameter username in this function whose arguements are given in second parenthesis
+
+( (isLoggedIn, username) => { 
+    if(isLoggedIn) { 
+        console.log(`User logged in successfully, username : ${username}`); 
+    }
+    else {
+        console.log(`ERROR 404`); 
+    }
+})(false, "Athak") 
