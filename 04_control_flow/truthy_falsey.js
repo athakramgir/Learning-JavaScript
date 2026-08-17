@@ -12,7 +12,7 @@ if(userEmail) {// Interesting : we didn't compare userEmail with anything, but s
                     function(){}   
 */
 // so we should not use the arrays as used above ^
-if(userEmail.length === 0) {
+if(userEmail.length !== 0) {
     console.log("Welcome User")
 } else { 
     console.log("Didn't get the userEmail")
@@ -34,6 +34,6 @@ var2 = undefined ?? 10 ?? 20// here we will get the value 10 which comes first (
 console.log(var2) // prints5
 
 // Null Coalescece operator is different from Ternary Operator 
-// condition ? true_case : false_case ;
+// condition ? true_case : false_case;
 const teaPrice = 20; 
 teaPrice >= 50 ? console.log("Expensive") : console.log("Cheap")

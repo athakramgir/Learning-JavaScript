@@ -12,7 +12,7 @@ if(isLoggedIn) {
     console.log(`Welcome ${user}`); 
 }
 /*
-    Conditional Checks : < (less than), > (greater than), <= (less than || equal to), >= (greater than || equal to), == (is equal), != (is not equal to), === (is strictly equal to, check the data type also)
+    Conditional Checks : < (less than), > (greater than), <= (less than || equal to), >= (greater than || equal to), == (is equal), != (is not equal to), === (is strictly equal to, check the data type also), !== is stictly not equal to
 */
 // if(2 === "2") {
 //     console.log(`Executed`); 
