@@ -13,9 +13,9 @@ const myObj = {
     
 // }
 
-// for (const [key, value] in myObj) { // this is a for in loop 
-//     console.log(`${key} -> ${value}`)
-// }
+for (const [key, value] in myObj) { // this is a for in loop 
+    // console.log(`${key} -> ${value}`)
+}
 
 for (const key in myObj) {
     // console.log(`${key} is shortcut for ${myObj[key]}`)
@@ -40,7 +40,7 @@ for (const key in map) {
 
 /*
     For the basics of it : 
-        Object : for-of
-        Array : for-in {there are more to arrays}
+        Object : for-in
+        Array : for-of {there are more to arrays}
         maps : for-of
 */
