@@ -43,3 +43,5 @@ const myCoding = [
 myCoding.forEach( (item) => {
     console.log(`${item.lang_name} has the extension ${item.extension}`); 
 } )
+
+// a problem occurs when we have to return a value from the call-back function
