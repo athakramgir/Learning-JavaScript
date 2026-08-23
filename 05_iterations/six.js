@@ -43,4 +43,5 @@ const library = [
 let userBooks = library.filter( (obj) => obj.isRead ) 
 userBooks = library.filter( (book) => book.pages >= 300 ) 
 
+userBooks = library.filter( (book) => book.pages >= 300 && !book.isRead) 
 console.log(userBooks)
