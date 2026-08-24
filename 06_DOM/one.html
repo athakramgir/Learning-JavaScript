@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title> <!--This text is called a text node-->
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color : #fff; 
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading"> DOM Learning <span style="display: none;">Test Content</span></h1>
+        <p>Whether we use React.js or Angular.js, we are talking about documents and objects. The headings, paragraphs, tables, and so on are just objects. And therefore these objects can be manipulated.</p>
+        <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus alias facilis maxime molestias ut, dignissimos cupiditate voluptatum saepe veritatis corporis dolore fugit blanditiis delectus debitis eveniet eos eligendi quidem temporibus?</h2>
+        <input type="password">
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+<!--
+    Notes for DOM
+    const title = document.getElementById('title')
+    title.innerHTML // this will give all the text including the HTML tags inside title
+    title.innerText // text which is visible on the page (does not include those which are hided by HTML)
+    title.textContent // give the entire text content regardless of whether it is visible or not
+
+    document.querySelector('h1') // this gives me the first h1 node
+   
+    
+    document.querySelectorAll('li') // it gives a list all the nodes of li which is not an array
+    // this also returns a NodeList not an array. We can convert the NodeList to an Array to use different functions such as map()
+
+    document.getElementsByClassName('') // this gives an HTMLCollection
+
+    We can convert NodeLists and HTMLCollections to arrays using : 
+    const arr_converted = Array.from(<lists-name>)
+-->
