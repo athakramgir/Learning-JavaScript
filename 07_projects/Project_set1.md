@@ -1,5 +1,5 @@
 # Project Related to DOM
-Projects' Link : [Click Here](https://stackblitz.com/edit/dom-project-chaiaurcode-wv3dioab?file=1-colorChanger%2Fchaiaurcode.js,.vscode%2Fsettings.json,1-colorChanger%2Findex.html,1-colorChanger%2Fstyle.css)
+Projects' Link : [Click Here](https://stackblitz.com/edit/dom-project-chaiaurcode?file=index.html)
 ## Project 1 Solution
 ```javascript
 const button = document.querySelectorAll('.button'); 
