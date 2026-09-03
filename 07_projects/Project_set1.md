@@ -62,12 +62,41 @@ form.addEventListener('submit', function (event) {
 2. We will also have to prevent the browser from performing it's default action. Submitting the form reloads the page or directs to a different URL, which clears the JavaScript state. 
 3. Selection of the attributes (height and weight) must be done after the form has been selected in this use case. If we put them before we have selected the form they will take empty values, which we don't want here. 
 4. To check if the number is NaN, there is an old method, which says 
+
     ```javascript
     if(height === NaN) 
     ```
-    And there is a new, better and recommeded method, 
+    And there is a new, better and recommeded method,
+
     ```javascript
     if(isNaN(height)) // return true/false
     ```
     Both serve the same purpose here. 
 5. toFixed(2) is going to return a string.
+
+## Project 3 - Digital Clock Solution
+
+```javascript
+const clock = document.getElementById('clock'); 
+clock.style.fontSize = '18px';
+
+setInterval(function(){
+    const date = new Date(); 
+    console.log(date.toLocaleTimeString())
+}, 1000) 
+setInterval(function(){
+    const date = new Date(); 
+    clock.innerHTML = `Time : ${date.toLocaleTimeString()}`
+}, 1000) 
+```
+**Notes**<br>
+1. Everytime we refresh the page or save, we get the latest time on console with the help of, 
+
+    ```javascript
+    console.log(date.toLocaleTimeString()); 
+    ```
+    but we want the method to run repeatedly after a certain interval and that's why we use 
+    ```javascript
+    setInterval(function(){}, 1000)
+    ```
+    Here the first parameter is the function/method which is to be repeated, and second parameter is the time in ms. 
