@@ -100,3 +100,8 @@ setInterval(function(){
     setInterval(function(){}, 1000)
     ```
     Here the first parameter is the function/method which is to be repeated, and second parameter is the time in ms. 
+
+## Project 4 - Guess the Random Number Solution 
+```javascript
+
+```
