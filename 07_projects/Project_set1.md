@@ -103,5 +103,100 @@ setInterval(function(){
 
 ## Project 4 - Guess the Random Number Solution 
 ```javascript
+let randomNumber = parseInt(Math.random() * 100 + 1);
+const submit = document.querySelector('#subt');
+const userInput = document.querySelector('#guessField');
+const guessSlot = document.querySelector('.guesses');
+const remaining = document.querySelector('.lastResult');
+const lowHigh = document.querySelector('.lowOrHi');
+const results = document.querySelector('.resultParas');
 
+const p = document.createElement('p');
+
+let prevGuess = [];
+let numGuess = 1;
+let playGame = true;
+
+if (playGame) {
+  submit.addEventListener('click', function (e) {
+    e.preventDefault();
+    const guess = parseInt(userInput.value);
+    console.log(guess);
+    validateGuess(guess);
+  });
+}
+function validateGuess(guess) {
+  // This validated the input
+  if (isNaN(guess)) {
+    alert('Please enter a valid number');
+  } else if (guess <= 0) {
+    alert('The number should be greater than 0');
+  } else if (guess > 100) {
+    alert('The number should be less than or equal to 100');
+  } else {
+    prevGuess.push(guess);
+    if (numGuess === 11) {
+      displayGuess(guess);
+      display(`Game Over, random number was ${randomNumber}`);
+      endGame();
+    } else {
+      displayGuess(guess);
+      checkGuess(guess);
+    }
+  }
+}
+
+function checkGuess(guess) {
+  // This is will check if the guess is true
+  if (guess === randomNumber) {
+    display(`You guessed it right !!`);
+    endGame();
+  } else if (guess < randomNumber) {
+    display(`Number is TOO small`);
+  } else if (guess > randomNumber) {
+    display(`Number is TOO large`);
+  }
+}
+
+function display(message) {
+  // this function will directly interact with DOM
+  lowHigh.innerHTML = `<h2>${message} </h2>`; 
+}
+
+function displayGuess(guess) {
+  // this is kind of a cleanup function because here we are going to reset the userInput value so they can input again
+  userInput.value = ''
+  guessSlot.innerHTML += `${guess} `
+  numGuess ++
+  if(11 - numGuess <= -1) alert("You have exhausted your number of attempts")
+  else remaining.innerHTML = `${11 - numGuess}`
+}
+
+function endGame() {
+  // User cannot play forever we have to end the game
+  userInput.value = ''
+  userInput.setAttribute('disabled', '')
+  p.classList.add('button')
+  p.innerHTML = `<h2 id ="newGame">Start New Game</h2>`
+  results.appendChild(p);
+  playGame = false; 
+
+  newGame();
+}
+
+function newGame() {
+  // starting a new game by resetting all the variables
+  const newGame = document.querySelector('#newGame'); 
+  newGame.addEventListener('click', function(){
+    randomNumber = parseInt(Math.random() * 100 + 1);
+    prevGuess = []; 
+    numGuess = 1; 
+    remaining.innerHTML = `${11 - numGuess}`
+    guessSlot.innerHTML = ''
+    userInput.removeAttribute('disabled');
+    results.removeChild(p); 
+    lowHigh.innerHTML = ''
+    playGame = true; 
+  })
+}
 ```

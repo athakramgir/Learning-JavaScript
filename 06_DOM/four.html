@@ -13,7 +13,7 @@
 <script>
     function addLanguage(lang_name){
         const lang = document.createElement('li')
-        lang.innerHTML = `${lang_name}`
+        lang.innerHTML = `${lang_name}` // we are talking about this line. 
         document.querySelector('.language').appendChild(lang);
     }//unoptimised due to innerHTML
     addLanguage('Python')
