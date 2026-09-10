@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events </title>
+    <script src="event_Basics.js"></script>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <!-- <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" /*onclick="alert('owl')"*/></li> -->
+             <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    /*
+        1. JavaScript is a sequentially run language. Events run sequentially. There are certain exceptions. One of those exceptions is browser events.
+        2. Some functions in javascript are only invoked by some event, like mouseOver, click etc. They do not run sequentially.
+        3. Avoid injecting JavaScript in HTML (like we have done with owl image)
+    */
+
+    // there are more ways to implement 3 (without injecting in HTML) 
+    document.getElementById("owl").onclick = function(){
+        // alert("owl image is clicked") 
+    }// better than the injecting method still can be improved
+    // instead of these we should use eventListeners() as they provide the propogation ability . onclick just provides the click functionality/limited features. 
+
+    // there are some more methods like attachEvent(), jQuery - on etc.
+    // but the best approach is...using eventListeners() . This is very powerful. It can listen to all the events users can do on the web-page. 
+    const owl = document.getElementById('owl')
+    owl.addEventListener('click', function(e){
+        // alert("owl clicked"); 
+    }, false) // the third parameter is set false by default but there are some use cases where we require it to be true (talk about it later)
+
+
+    // owl.addEventListener('click', function(e){// the paremeter of function is the event object
+    //     console.log(e)
+    // }, false)
+    // // what to study : types, timeStamp, defaultPrevented,
+    //  target, toElement, srcElement, currentTarget,
+    //  clientX, clientY, screenX, screenY,
+    //  altkey, ctrlkey, shiftkey, keyCode
+//here
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     // console.log("Clicked inside the UL")
+    // }, false)
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     // console.log("Clicked on the owl")
+    //     e.stopPropagation()
+    // }, false) 
+    // // in this scene, we get the log of owl element first before the images element. 
+    // // This is Event Propogation, Bubbling: The event starts from inner element (smaller bubble) and then go to the outer element (bigger bubble)
+
+
+    // // we have Event Propogation, Capturing mode 
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     // console.log("Clicked inside the UL")
+    //     // e.stopPropagation();
+    // }, true)
+    // // after the stopPropagation() we cannot modify the events with its children since it is applied to images, any other event on it or it's children will not work
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     // console.log("Clicked on the owl")
+    // }, true) 
+    // // this time we put third parameter as 'true' and the results are found opposite of ones before.
+    // // The event starts with the outermost element (root of DOM), and then goes to inner elements
+    
+    // // If we want to stop the propogation meaning that once my inner element has been executed don't execute the outer one, we use stopPropagation() similar to preventDefault() 
+
+    // // By default, we are doing bubbling meaning that the third parameter's default value is 'false'
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log("Google clicked")
+    // }, false)
+// here
+
+// task : when we click on any image the image should disappear
+// instead of selecting each image, we can select their parent, images
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.parentNode)
+        console.log(e.target.tagName)
+
+        if(e.target.tagName === 'IMG') {
+            console.log(e.target.id)
+            let removeElement = e.target.parentNode
+            removeElement.remove()
+        }
+        // removeElement.parentNode.removeChild(removeElement) another method
+
+        // one problem is there, if we click somewhere on the li we get parent as ul and when we remove it the entire list goes away. To prevent that we will put some strict checks
+    }, false)
+
+</script>
+</html>
