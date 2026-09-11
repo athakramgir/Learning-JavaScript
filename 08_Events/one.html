@@ -14,7 +14,7 @@
             <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
             <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
             <!-- <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" /*onclick="alert('owl')"*/></li> -->
-             <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+             <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
             <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
             <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
         </ul>
@@ -35,26 +35,25 @@
 
     // there are some more methods like attachEvent(), jQuery - on etc.
     // but the best approach is...using eventListeners() . This is very powerful. It can listen to all the events users can do on the web-page. 
-    const owl = document.getElementById('owl')
-    owl.addEventListener('click', function(e){
+    document.getElementById('owl').addEventListener('click', function(e){
         // alert("owl clicked"); 
     }, false) // the third parameter is set false by default but there are some use cases where we require it to be true (talk about it later)
 
 
-    // owl.addEventListener('click', function(e){// the paremeter of function is the event object
+    // document.getElementById('owl').addEventListener('click', function(e){// the paremeter of function is the event object
     //     console.log(e)
     // }, false)
-    // // what to study : types, timeStamp, defaultPrevented,
+    //  what to study : types, timeStamp, defaultPrevented,
     //  target, toElement, srcElement, currentTarget,
     //  clientX, clientY, screenX, screenY,
     //  altkey, ctrlkey, shiftkey, keyCode
 //here
     // document.getElementById('images').addEventListener('click', function(e){
-    //     // console.log("Clicked inside the UL")
+    //     console.log("Clicked inside the UL")
     // }, false)
     // document.getElementById('owl').addEventListener('click', function(e){
-    //     // console.log("Clicked on the owl")
-    //     e.stopPropagation()
+    //     console.log("Clicked on the owl")
+    //     // e.stopPropagation()
     // }, false) 
     // // in this scene, we get the log of owl element first before the images element. 
     // // This is Event Propogation, Bubbling: The event starts from inner element (smaller bubble) and then go to the outer element (bigger bubble)
@@ -62,12 +61,12 @@
 
     // // we have Event Propogation, Capturing mode 
     // document.getElementById('images').addEventListener('click', function(e){
-    //     // console.log("Clicked inside the UL")
+    //     console.log("Clicked inside the UL")
     //     // e.stopPropagation();
     // }, true)
     // // after the stopPropagation() we cannot modify the events with its children since it is applied to images, any other event on it or it's children will not work
     // document.getElementById('owl').addEventListener('click', function(e){
-    //     // console.log("Clicked on the owl")
+    //     console.log("Clicked on the owl")
     // }, true) 
     // // this time we put third parameter as 'true' and the results are found opposite of ones before.
     // // The event starts with the outermost element (root of DOM), and then goes to inner elements
@@ -88,11 +87,11 @@
     document.querySelector('#images').addEventListener('click', function(e){
         console.log(e.target.parentNode)
         console.log(e.target.tagName)
-
+        
         if(e.target.tagName === 'IMG') {
             console.log(e.target.id)
             let removeElement = e.target.parentNode
-            removeElement.remove()
+            removeElement.remove() 
         }
         // removeElement.parentNode.removeChild(removeElement) another method
 
