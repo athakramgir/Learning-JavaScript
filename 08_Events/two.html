@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 2</title>
+</head>
+<body style="background-color: #212121; color: #fff">
+    <h1>Let's Code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    /*
+        The first parameter is an Handler/Call-back function and second is the time number
+        setTimout works like - give me t time and I will execute handler in that time once
+    */
+    // setTimeout(function(){
+    //     console.log("This will take 5s to print on the console")
+    // }, 5000) // 2s time
+
+    function displayTime(){
+        console.log("This takes 2s to print on the console")
+    }
+    // setTimeout(displayTime, 2000) // note : we pass the reference to the function here {therefore no () } \
+    
+    const changeTextOnDocument = function(){
+        console.log("The heading is changed right this millisecond")
+        document.querySelector('h1').innerHTML = "JavaScript Learning";
+    }
+    const ReferenceOfSpecificTimeout = setTimeout(changeTextOnDocument, 1000)
+    // this is about setting the timer, what about stopping it? 
+
+    // clearTimeout(ReferenceOfSpecificTimeout) 
+
+    // let's say we want clear when some event occurs then, 
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(ReferenceOfSpecificTimeout); 
+        console.log("STOPPED")
+    })
+</script>
+</html>

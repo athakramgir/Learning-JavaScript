@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 3  </title>
+</head>
+<body style="background-color: #212121; color: #fff">
+    <h1>Let's Code</h1>
+    <button id="stop">Stop</button> <br><br>
+    <button id="start">Start</button>
+    <p id="text"></p>
+</body>
+<script>
+    /*
+        The setInterval method/call is similar to setTimeout but here the handler is going to execute repeatedly for every time (second parameter) given; 
+    */
+    function printTime(thirdParameter){
+        document.querySelector('#text').innerHTML += "Hello<br>"
+        const date = new Date(); 
+        console.log(thirdParameter, date.toLocaleString())
+    }
+    // setInterval(function(){
+    //     const date = new Date();
+    //     console.log(date.toLocaleString())
+    // }, 1000)
+    // const Repeater = setInterval(printTime, 1000, "hi"); 
+
+    // similar to setTimeout, we also have to stop setInterval
+    // clearTimeout(Repeater)
+    let Repeater; 
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(Repeater); 
+    })
+    document.querySelector('#start').addEventListener('click', function(){
+        Repeater = setInterval(printTime, 1000, "Time : ")
+    })
+
+</script>
+</html>
