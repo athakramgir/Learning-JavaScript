@@ -102,6 +102,7 @@ setInterval(function(){
     Here the first parameter is the function/method which is to be repeated, and second parameter is the time in ms. 
 
 ## Project 4 - Guess the Random Number Solution 
+
 ```javascript
 let randomNumber = parseInt(Math.random() * 100 + 1);
 const submit = document.querySelector('#subt');
@@ -199,4 +200,58 @@ function newGame() {
     playGame = true; 
   })
 }
+```
+## Project 5 - Unlimited Colors
+```javascript
+// generate random color 
+
+const randomColor = function() {
+    const hex = "0123456789ABCDEF"; 
+    let color = "#"; 
+    for(let i = 0; i < 6; i++){
+        const randomIndex = (Math.floor(Math.random() * 16))
+        color += hex[randomIndex]
+    }
+    return color; 
+}
+
+const random = randomColor(); 
+console.log(random)
+
+let interval1; 
+document.getElementById('start').addEventListener('click', function(){
+    if(!interval1) {
+        interval1 = setInterval(function(){
+            document.querySelector('body').style.backgroundColor = randomColor(); 
+        }, 1000)
+    } // this is a good practice
+})
+document.getElementById('stop').addEventListener('click', function(){
+    clearInterval(interval1); 
+    interval1 = null; // this is a cleanup after we have stopped the continous color chaning, makes code a little more professional and handles edge cases
+})
+```
+
+## Project 6 - Keyboard
+```javascript
+const insert = document.querySelector('#insert');
+
+window.addEventListener('keydown', (e) => {
+    insert.innerHTML = `
+        <div id="color">
+        <table>
+        <tr>
+          <th>Key</th>
+          <th>Key Code</th>
+          <th>Code</th>
+        </tr> 
+        <tr>
+          <td>${(e.key === " ") ? "Space" : e.key}</td>
+          <td>${e.keyCode}</td>
+          <td>${e.code}</td>
+        </tr>
+      </table>
+        </div>
+    `
+})
 ```
