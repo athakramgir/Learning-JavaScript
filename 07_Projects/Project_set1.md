@@ -201,6 +201,7 @@ function newGame() {
   })
 }
 ```
+
 ## Project 5 - Unlimited Colors
 ```javascript
 // generate random color 
