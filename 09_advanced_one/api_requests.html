@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color : #FFF">
+    Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+    <div id="card">
+        <button id="open"> Open </button>
+        <button id="close"> Close </button>
+    </div>
+</body>
+<script>
+    const requestURL = 'https://api.github.com/users/athakramgir'
+    const xhr = new XMLHttpRequest();
+    // console.log(xhr.readyState); 
+    xhr.open('GET', requestURL); 
+    // console.log(xhr.readyState); 
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState); 
+        if(xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText); // this generally comes in form of a string, so we have to parse it to JSON
+            // console.log(this.responseText) // we are talking about this particular context\'
+            console.log(typeof data)
+            console.log(data.followers)
+
+            const pfp = data.avatar_url;
+            console.log(pfp)
+            
+            const para = document.createElement('p'); 
+            para.innerHTML = `<img src=${pfp} width="200">
+            <br>
+            Followers = ${data.followers}`
+            document.querySelector('#open').addEventListener('click', function(){
+                document.querySelector('#card').appendChild(para); 
+            })
+            document.querySelector('#close').addEventListener('click', function(){
+                document.querySelector('#card').removeChild(para)
+            })
+        }
+    }
+    xhr.send(); 
+    // console.log(xhr.readyState);
+    /*
+        console.log() : 
+        It is not a part of core javascript. Even document is not a part of core javascript
+        console.log() is a debugging tool provided by the run-time environment of javascript. 
+        Study the v8 engine to learn this in depth
+    */
+</script>
+</html>
