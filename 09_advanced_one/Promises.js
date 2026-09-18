@@ -122,7 +122,7 @@ fetch("https://api.github.com/users/athakramgir")
 .catch((error) =>{
     console.log(`E : ${error}`)
 })
-
 /*
     Notice how the last code (fetch) gets it's output first on the console then the remiaing part does. Think why? 
+    Remember the diagram in the notebook, there is a box over fetch() that leads to a special queue called as Fetch Queue/High Priority Queue/Micro-Task Queue. This queue is faster than the default Task Queue and therefore the call-backs in this queue are prioritized over the Task Queue. And thus we can say this is why we get the response on fetch() before the custom promises created. 
 */
