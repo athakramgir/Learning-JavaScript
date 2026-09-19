@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff">
+  <img id="image" src="#">
+  <script>
+  </script>
+</body>
+<script>
+    'https://api.thecatapi.com/v1/images/search?utm_source=chatgpt.com'
+// of course we're searching for cats
+
+    const img = document.querySelector('#image')
+    fetch('https://api.thecatapi.com/v1/images/search?utm_source=chatgpt.com')
+    .then(function(response){
+        // console.log(response.json()) this is a promise (again!!)
+        return response.json()
+    }).then(function(response){
+        console.log(response);
+        console.log(response[0].url);
+        console.log(response[0].width)
+        console.log(response[0].height)
+        img.src = response[0].url 
+        img.width = '500'
+        img.height = '400'       
+    }).catch(function(error){
+        console.log(`E: ${error}`)
+    })
+</script>
+</html>

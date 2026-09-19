@@ -112,7 +112,7 @@ consumePromiseFive()
 // You cannot do this because response.json() is also returns a promise and fetch() is also return a promise so we use two then() : 
 // first one process promise returned by fetch() and the other processes the one returned by .json();
 
-fetch("https://api.github.com/users/athakramgir")
+fetch("https://api.github.com/users/athakramgir") // this is an api
 .then((response) => {
     return response.json()
 })
