@@ -1,7 +1,7 @@
 # JavaScript and Classes
 
 ## OOPs
-
+- It is a programming paradigm. 
 ## Object 
 - Collection of properties and methods
 - example - toLowerCase 

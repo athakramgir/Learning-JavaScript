@@ -33,7 +33,7 @@ function User(username, isLoggedIn, loginCount) {
 }
 const userOne = new User("Athak", true, 8)
 console.log(userOne.constructor)
-const userTwo = new User("Hitesh", false, 10) // this overwrites the entries of userOne and this is why  new keyword is important. 
+const userTwo = new User("Hitesh", false, 10) // this overwrites (in case new keyword is not used) the entries of userOne and this is why  new keyword is important. 
 // console.log(userTwo) 
 
 /*
