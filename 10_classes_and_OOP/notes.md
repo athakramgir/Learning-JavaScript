@@ -1,6 +1,6 @@
 # JavaScript and Classes
 
-## OOPs
+## OOPs in JavaScript
 - It is a programming paradigm which is implemented with the help of objects and classes. 
 - Although JavaScript is NOT an object-oriented programming language, it is a prototype-based language, which provides the syntax for OOPs internally. 
 - JavaScript's OOP is prototype-based, unlike languages such as Java or C++ which are primarily class-based.
