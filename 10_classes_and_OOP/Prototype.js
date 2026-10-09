@@ -31,6 +31,9 @@ myHeroes.newMethod()
 // heroPower.newMethod() // this gave an error meaning that the object does not have the access to the newMethod
 
 // Solving the above string problem 
+String.prototype.trueString = function(){
+    return this.trim() 
+}
 String.prototype.trueLength = function(){
     return this.trim().length
 }
